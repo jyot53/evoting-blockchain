@@ -1,0 +1,181 @@
+import React, { useState } from "react";
+import { NavLink, useHistory } from "react-router-dom";
+//after succesfull login redirect to home page - useHistory
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import LoginPic from "../images/pngfindlogin.png";  
+import titlepic from "../images/titlepic.png";
+// import {useStateValue} from '../StateProvider';
+const Login = () => {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // const [{user}, dispatch] = useStateValue();
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+
+    if (email == "admin@admin.com" && password == "admin") {
+      // localStorage.setItem('isAdmin',true);
+      toast.success(`Welcome Admin`, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+
+      // dispatch({
+      //   type:'SET_USER',
+      //   payload : {
+      //     name : "admin",
+      //     email : "admin@admin.com"
+      //   }
+      // })
+      localStorage.setItem('isadmin','true');
+      if(localStorage.getItem('phase') == null){
+        localStorage.setItem('phase' , 'Registration');
+      }
+      setTimeout(() => history.replace("/admin/addcandidate"), 3000);
+
+      return;
+    }
+
+    const response = await fetch("/signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+    if (data.warning) {
+      toast.warning(`${data.warning}`, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (data.message) {
+      toast.success(`${data.message}`, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      // dispatch({
+      //   type:'SET_USER',
+      //   payload : data.user
+      // })
+      // console.log(data.user);
+      localStorage.setItem('username',data.user.name);
+      localStorage.setItem('useremail',data.user.email);
+      localStorage.setItem('isadmin','false');
+      setTimeout(() => history.replace("/user/home"), 3000);
+    } else if (data.error) {
+      toast.error(`${data.error}`, {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+  };
+
+  return (
+    <>
+      <section className="register">
+        <div className="container frame">
+          <div className="row offset-1 ">
+            <div className="col-md-6 col-12 d-flex align-items-center justify-content-center flex-column">
+              <div className="title my-3 d-flex justify-content-center align-items-center ">
+                <h1>Login Here</h1>
+                <figure>
+                  <img
+                    className="img-fluid ml-2"
+                    alt="login pic"
+                    src={titlepic}
+                  ></img>
+                </figure>
+              </div>
+              <div className="offset-1">
+                <form method="POST">
+                  <div className="form-group">
+                    <input
+                      type="email"
+                      className="form-control"
+                      name="email"
+                      placeholder="Enter email"
+                      autoComplete="off"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      className="form-control"
+                      name="password"
+                      placeholder="Password"
+                      autoComplete="off"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="d-flex align-items-center text-center">
+                    <button
+                      type="submit"
+                      className="btn btn-primary registerbtn d-flex align-items-center justify-content-center"
+                      onClick={loginUser}
+                    >
+                      Login
+                    </button>
+                    <NavLink
+                      to="/register"
+                      className="btn btn-primary loginbtn d-flex align-items-center justify-content-center"
+                    >
+                      Register
+                    </NavLink>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div className="col-md-6 col-12 d-flex align-items-center">
+              <figure>
+                <img className="img-fluid" src={LoginPic} alt="Registration" />
+              </figure>
+            </div>
+          </div>
+        </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </section>
+    </>
+  );
+};
+
+export default Login;
