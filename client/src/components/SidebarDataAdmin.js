@@ -31,5 +31,12 @@ export const SidebarData = [
     icon: <IoIcons.IoMdPeople />,
     cName: 'nav-text',
     index:3,
+  },
+  {
+    title: 'Analysis',
+    path: '/admin/analysis',
+    icon: <IoIcons.IoMdAnalytics />,
+    cName: 'nav-text',
+    index:4,
   }
 ];

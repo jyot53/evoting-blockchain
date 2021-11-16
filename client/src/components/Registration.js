@@ -2,18 +2,21 @@ import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SignupPic from "../images/registerpic.jpg";
-import titlepic from "../images/titlepic.png";
+import './styles/Register.css';
+import {MdPassword} from 'react-icons/md';
+import {BsGenderAmbiguous} from 'react-icons/bs';
+import iconaa from '../images/icon.svg'
 
-//postdata - form submit (one time fire)
-//handleinputs - key press (multiple time)
+import registerpic from "../images/registerpic.jpg";
+// import titlepic from "../images/titlepic.png";
 
 const Registration = () => {
-  const history = useHistory(); //redirect to anoother page
-
+  const history = useHistory();
+  
   const [user, setUser] = useState({
     name: "",
     email: "",
+    gender: "",
     aadhar: "",
     password: "",
     cpassword: "",
@@ -27,14 +30,17 @@ const Registration = () => {
     setUser({ ...user, [name]: value });
   };
 
+  const captchaValue = (value) => {
+    console.log("Captcha value: " + value);
+    return value;
+  }
+
   const postData = async (e) => {
     //on submit/click
     e.preventDefault();
-    const { name, email, aadhar, password, cpassword } = user; //object destructor
-    //this is new featur of js in es6
-    //sent data to backend - 8000 port and front - 3000
-    //go to register page in the 8000 port and give data to it
+    const { name, email,gender, aadhar, password, cpassword } = user;
 
+ 
     const response = await fetch("/register", {
       // url :- https://localhost:8000/register
       method: "POST",
@@ -42,6 +48,7 @@ const Registration = () => {
       body: JSON.stringify({
         name,
         email,
+        gender,
         aadhar,
         password,
         cpassword,
@@ -86,8 +93,118 @@ const Registration = () => {
 
   return (
     <>
-      <section className="py-5 register">
-        <div className="container frame">
+      <section className="registration_main">
+      <div className="register_content">
+          <div className="register_right">
+            <img className="login_img" src="https://image.freepik.com/free-vector/sign-concept-illustration_114360-125.jpg" alt="loginuser"/>
+          </div>
+          <div className="register_left">
+            <h1>Create a new account</h1>
+            <p>Remember your credentials.</p>
+            <p>This is help you to login to the website.</p>
+            <form method="POST">
+                  <div className="form-group2">
+                    <input
+                      type="text"
+                      className="form-control2"
+                      name="name"
+                      placeholder="Your Name"
+                      autoComplete="off"
+                      value={user.name}
+                      onChange={handleInputs}
+                    />
+                    <span class="icon2"><i className="fa fa-user" aria-hidden="true"></i></span>
+                  </div>
+                  <div className="form-group2">
+                    <input
+                      type="email"
+                      className="form-control2"
+                      name="email"
+                      placeholder="Your email"
+                      autoComplete="off"
+                      value={user.email}
+                      onChange={handleInputs}
+                    />
+                    <span className="icon2"><i className="fa fa-envelope" aria-hidden="true"></i></span>
+                  </div>
+                  <div className="form-group2">
+                    <input
+                      type="text"
+                      className="form-control2"
+                      name="gender"
+                      placeholder="Your Gender(Male/Female)"
+                      autoComplete="off"
+                      value={user.gender}
+                      onChange={handleInputs}
+                    />
+                    <span className="icon2"><BsGenderAmbiguous/></span>
+                  </div>
+                  <div className="form-group2">
+                    <input
+                      type="text"
+                      className="form-control2"
+                      name="aadhar"
+                      placeholder="Enter Aadhar No."
+                      autoComplete="off"
+                      value={user.aadhar}
+                      onChange={handleInputs}
+                    />
+                    <span className="icon2"> <img src={iconaa} alt="Aadhar" /> </span>
+                  </div>
+                  <div className="form-group2">
+                    <input
+                      type="password"
+                      className="form-control2"
+                      name="password"
+                      placeholder="Your Password"
+                      autoComplete="off"
+                      value={user.password}
+                      onChange={handleInputs}
+                    />
+                    <span className="icon2"><MdPassword/></span>
+                  </div>
+                  <div className="form-group2">
+                    <input
+                      type="password"
+                      className="form-control2"
+                      name="cpassword"
+                      placeholder="Confirm Password"
+                      autoComplete="off"
+                      value={user.cpassword}
+                      onChange={handleInputs}
+                    />
+                    <span className="icon2"><MdPassword/></span>
+                  </div>
+                  <button type="submit" onClick={postData} className="login_btn">Register</button>
+                </form>
+            <div className="login_last" > 
+              <p>Have an account ? </p>
+              <NavLink className="login_link" to="/login">Login</NavLink>
+            </div>
+          </div>
+         
+        </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </section>
+    </>
+  );
+};
+
+export default Registration;
+
+
+/*
+<div className="container frame">
           <div className="row offset-1">
             <div className="col-md-6 col-12">
               <figure>
@@ -109,6 +226,7 @@ const Registration = () => {
                 <form method="POST">
                   <div class="form-group">
                     <input
+                    required="true"
                       type="text"
                       class="form-control"
                       name="name"
@@ -126,6 +244,17 @@ const Registration = () => {
                       placeholder="Your email"
                       autoComplete="off"
                       value={user.email}
+                      onChange={handleInputs}
+                    />
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="age"
+                      placeholder="Your Age"
+                      autoComplete="off"
+                      value={user.age}
                       onChange={handleInputs}
                     />
                   </div>
@@ -162,6 +291,7 @@ const Registration = () => {
                       onChange={handleInputs}
                     />
                   </div>
+       
                   <div className="d-flex align-items-center text-center">
                     <button
                       type="submit"
@@ -182,20 +312,5 @@ const Registration = () => {
             </div>
           </div>
         </div>
-        <ToastContainer
-          position="top-center"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </section>
-    </>
-  );
-};
 
-export default Registration;
+*/

@@ -60,6 +60,7 @@ export const init = async () => {
 	// );
   electionContract = new web3.eth.Contract(Election.abi,Election.networks[networkId].address);
 	isInitialized = true;
+	// console.log(allaccounts[2]);
 };
 
 export const candidatesCount = async () => {
@@ -108,12 +109,12 @@ export const getContractCandidates = async (id) => {
 		return data;});
 }
 
-export const setContractPhase = async () => {
+export const setContractPhase = async (phase) => {
 	if(!isInitialized) {
 		await init();
 	}
 
-	electionContract.methods.changePhase().send({from: selectedAccount})
+	electionContract.methods.changePhase(phase).send({from: selectedAccount})
 }
 
 export const getContractPhase = async () => {
@@ -130,4 +131,20 @@ export const contractVote = async (id) => {
 	}
 
 	electionContract.methods.Vote(id).send({ from : selectedAccount});
+}
+
+export const callContractNewAccountIndex = async () => {
+	if(!isInitialized) {
+		await init();
+	}
+
+	electionContract.methods.provideNewAccount().send({ from : selectedAccount});
+}
+
+export const getContractNewAccountIndex = async () => {
+	if(!isInitialized) {
+		await init();
+	}
+
+	return electionContract.methods.getAccountIndex().call().then((data) => {return data})
 }

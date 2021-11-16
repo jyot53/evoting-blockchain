@@ -18,6 +18,7 @@ contract Election{
     address[] public voters;
     address public owner;
     string public phase;
+    uint public accountindex = 0;
     
     event electionUpdates(uint _id);
     
@@ -31,14 +32,24 @@ contract Election{
         _;
     }
 
-    function changePhase() public ownerModifier{
-        if( keccak256(abi.encodePacked((phase))) == keccak256(abi.encodePacked('Registration'))    ){
-            phase = 'Voting';
-        }else{
-            phase = 'Registration';
-        }
-    }
+    // function changePhase() public ownerModifier{
+    //     if( keccak256(abi.encodePacked((phase))) == keccak256(abi.encodePacked('Registration'))    ){
+    //         phase = 'Voting';
+    //     }else{
+    //         phase = 'Registration';
+    //     }
+    //     if(keccak256(abi.encodePacked((phase))) == keccak256(abi.encodePacked('Registration'))){
+    //         phase = 'Voting';
+    //     }else if( keccak256(abi.encodePacked((phase))) == keccak256(abi.encodePacked('Voting'))){
+    //         phase = 'Ended';
+    //     }else if( keccak256(abi.encodePacked((phase))) == keccak256(abi.encodePacked('Ended'))){
+    //         phase = 'Registration';
+    //     }
+    // }
 
+    function changePhase(string memory _phase ) public ownerModifier{
+        phase = _phase;
+    }
     function getPhase() public view returns(string memory){
         return phase;
     }
@@ -54,10 +65,18 @@ contract Election{
     
     function Vote(uint _id) public{
         require(!votedornot[msg.sender],"You Can Only Vote Once!!!");
-        require(_id>0 && _id<=candidatesCount,"Invalid Candidate id");
+        require(_id>=0 && _id<candidatesCount,"Invalid Candidate id");
         candidates[_id].votecount++;
         voters.push(msg.sender);
         votedornot[msg.sender]=true;
         emit electionUpdates(_id);
+    }
+
+    function provideNewAccount() public{
+        accountindex++;
+    }
+
+   function getAccountIndex() public view returns(uint){
+        return (accountindex-1);
     }
 }

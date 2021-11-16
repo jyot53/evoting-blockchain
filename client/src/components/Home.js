@@ -3,7 +3,7 @@ import Left from "../images/vote1.png";
 const Home = () => {
   return (
     <div className="home">
-      <h1 className="home_title">E-Voting</h1>
+      <h1 className="home_title"><img src="https://i.imgur.com/nNgnnJ1.png" alt="logo" /></h1>
 
       <div className="home_main">
         <div className="home_main_left">
@@ -12,7 +12,7 @@ const Home = () => {
         </div>
         <div className="home_main_right">
           <div classsName="home_main_data">
-            <p className="home_main_data1">Welcome to Vote Chain</p>
+            <p className="home_main_data1">Welcome to Vote-Chain</p>
             <p className="home_main_data2">Let your voice be heard!!!</p>
           </div>
           <div className="wrapper">

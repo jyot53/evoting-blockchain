@@ -22,7 +22,7 @@ const UserHome = () => {
                     <div>
                         <h3>1. Voter Registration</h3>
                         <ul className="unordered_list">
-                            <li>For casting</li>
+                            <li>For casting the vote user needs to first register himself. For the registation purpose the user will be provided a voter registration form on this website</li>
                             <li>For casting</li>
                             <li>For casting</li>
                         </ul>

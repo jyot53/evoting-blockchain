@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .registration_main{
+      background-color: #f8f2f2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      /*background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%35' id='svg' viewBox='0 0 1440 600' xmlns='http://www.w3.org/2000/svg' class='transition duration-300 ease-in-out delay-150'%3E%3Cpath d='M 0 600 C 0 600 0 150 0 150 C 69.38717948717951 170.43076923076922 138.77435897435902 190.86153846153846 221 200 C 303.225641025641 209.13846153846154 398.2897435897436 206.98461538461538 491 201 C 583.7102564102564 195.01538461538462 674.0666666666667 185.20000000000002 748 179 C 821.9333333333333 172.79999999999998 879.4435897435897 170.2153846153846 963 152 C 1046.5564102564103 133.7846153846154 1156.1589743589743 99.93846153846154 1240 97 C 1323.8410256410257 94.06153846153846 1381.9205128205128 122.03076923076924 1440 150 C 1440 150 1440 600 1440 600 Z' stroke='none' stroke-width='0' fill='%23fe4f5a66' class='transition-all duration-300 ease-in-out delay-150 path-0'%3E%3C/path%3E%3Cpath d='M 0 600 C 0 600 0 300 0 300 C 95.20000000000002 311.5358974358974 190.40000000000003 323.07179487179485 269 319 C 347.59999999999997 314.92820512820515 409.6 295.24871794871797 475 282 C 540.4 268.75128205128203 609.2 261.93333333333334 698 280 C 786.8 298.06666666666666 895.5999999999999 341.01794871794874 971 346 C 1046.4 350.98205128205126 1088.4 317.9948717948718 1161 304 C 1233.6 290.0051282051282 1336.8 295.00256410256407 1440 300 C 1440 300 1440 600 1440 600 Z' stroke='none' stroke-width='0' fill='%23fe4f5a88' class='transition-all duration-300 ease-in-out delay-150 path-1'%3E%3C/path%3E%3Cpath d='M 0 600 C 0 600 0 450 0 450 C 71.49487179487181 419.76153846153846 142.98974358974363 389.5230769230769 227 398 C 311.0102564102564 406.4769230769231 407.53589743589737 453.6692307692308 489 482 C 570.4641025641026 510.3307692307692 636.8666666666667 519.8 719 494 C 801.1333333333333 468.2 898.9974358974359 407.1307692307692 977 411 C 1055.002564102564 414.8692307692308 1113.1435897435897 483.6769230769231 1187 501 C 1260.8564102564103 518.3230769230769 1350.4282051282053 484.16153846153844 1440 450 C 1440 450 1440 600 1440 600 Z' stroke='none' stroke-width='0' fill='%23fe4f5aff' class='transition-all duration-300 ease-in-out delay-150 path-2'%3E%3C/path%3E%3C/svg%3E"); */
+    
+      /* background-image: url("data:image/svg+xml,%3C!--%3Fxml version='1.0' standalone='no'%3F--%3E%3Csvg id='sw-js-blob-svg' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='sw-gradient' x1='0' x2='1' y1='1' y2='0'%3E%3Cstop id='stop1' stop-color='rgba(248.625  76.019  86.869  1)' offset='0%25'%3E%3C/stop%3E%3Cstop id='stop2' stop-color='rgba(237.241  173.008  177.045  1)' offset='100%25'%3E%3C/stop%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23sw-gradient)' d='M32.8 -24.7C40.5 -16.5 43.4 -2.9 40.2 8.4C37 19.8 27.8 29.1 17.5 32.6C7.3 36 -3.9 33.7 -13.8 28.9C-23.7 24.1 -32.3 16.7 -34.9 7.3C-37.5 -2 -34.2 -13.3 -27.4 -21.3C-20.6 -29.3 -10.3 -34 1.1 -34.9C12.5 -35.8 25.1 -32.9 32.8 -24.7Z' width='100%25' height='100%25' transform='translate(50 50)' stroke-width='0' style='transition: all 0.3s ease 0s%3B' stroke='url(%23sw-gradient)'%3E%3C/path%3E%3C/svg%3E"); */
+
+    background-image: url('../../images/blob1.svg');
+    
+  }
+
+  .register_content{
+    display: flex;
+    background-color: #FFF;
+    border-radius:30px;
+    height:93vh;
+    align-items: center;
+    justify-content: space-around;
+    width:70vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+  }
+
+  
+ .register_content input {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    width: 75%;
+    border: 1px solid lightgray;
+  }
+
+  input:focus{
+      box-shadow: 0;
+  }
+
+  .form-control2{
+    width: 100%;
+    display: block;
+    padding: 5px 10px 5px 50px;
+  }
+  
+  .form-control2:focus {
+    box-shadow: none;
+    border: 1px solid #01b399;
+    background-color: #f5f0f0;
+    outline: 0;
+  }
+  
+  .form-control2:focus::placeholder {
+    color: rgb(0, 0, 0);
+    margin-left: 35px;
+  }
+  
+  .form-group2 {
+    margin: 10px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* justify-content: end; */
+  }
+  
+  .icon2 {
+    position: absolute;
+    right: 7.5rem;
+    top:-10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #969695;
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  /* #special-group{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+  }
+
+  #special-group div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+      margin-top: 15px;
+  }
+
+  #special-group input{
+      width:30%;
+  } */
+  
+ .register_content button {
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 30px;
+    border-radius: 20px;
+    font-size: 20px;
+    border: 1px solid lightgray;
+    /* background-color:#28142f; */
+    background-color: #fe4f5a;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .form-group:focus {
+    outline: 0 !important ;
+  }
+  
+  .login_last {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .login_last .login_link {
+    text-decoration: none;
+    margin-left: 10px;
+    margin-top: -15px;
+  }
+  
+  .register_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* flex-grow: 1; */
+  }
+  
+  .register_left h1 {
+    font-size: 2.5rem;
+    color: #385964;
+    text-transform: capitalize;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .register_left p {
+    color: #969695;
+    text-align: center;
+  }
+  
+  .register_right img {
+    height: 415px;
+    width: 456px;
+  }

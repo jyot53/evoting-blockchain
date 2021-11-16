@@ -1,0 +1,101 @@
+.admin_add {
+  display: flex;
+  height: 85vh;
+  align-items: center;
+  /* justify-content: center; */
+  margin-top: 60px;
+  background-color: #fff;
+  flex-direction: column;
+}
+
+.admin_add_title {
+  margin-bottom: -25px;
+  padding: 20px;
+  width: 50vw;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #060b26;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.admin_add_box {
+  width: 60vw;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 5px 0px,
+    rgba(0, 0, 0, 0.6) 0px 0px 1px 0px;
+  padding: 50px 50px 30px 50px;
+  border-radius: 10px;
+}
+
+.admin_add_content {
+  display: flex;
+}
+
+.admin_add_content div:first-child {
+  flex: 1;
+}
+.admin_add_content div:last-child {
+  flex: 0.5;
+}
+
+.admin_add_content input {
+  width: 60%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px 20px 20px 5px;
+  margin-bottom: 20px;
+  background-color: #e2e3e4;
+}
+
+.admin_add_content input::placeholder {
+  color: grey;
+}
+
+.admin_add_content input:focus {
+  background-color: #eceef0;
+}
+
+.admin_add_content input:focus::placeholder {
+  color: #060b26;
+}
+
+.admin_add_content button {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 20px;
+  font-size: 20px;
+  border: 1px solid lightgray;
+  background-color: #060b26;
+  color: #fff;
+  cursor: pointer;
+}
+
+.admin_add_note{
+    color: red;
+}
+
+.form-group3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon3 {
+    position: absolute;
+    right: 230px;
+    bottom: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #969695;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

@@ -1,0 +1,48 @@
+.admin_anal {
+    display: flex;
+    height: 85vh;
+    align-items: center;
+    /* justify-content: center; */
+    margin-top: 20px;
+    background-color: #fff;
+    flex-direction: column;
+  }
+  
+  .admin_anal_title {
+    margin-bottom: -25px;
+    padding: 20px;
+    width: 50vw;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: #060b26;
+    color: #fff;
+    border-radius: 10px;
+  }
+  
+  .admin_anal_box {
+    width: 60vw;
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 0px 5px 0px,
+      rgba(0, 0, 0, 0.6) 0px 0px 1px 0px;
+    padding: 50px 50px 30px 50px;
+    border-radius: 10px;
+  }
+  
+  .admin_anal_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .admin_anal_iframe{
+    border :1px solid #060b26;
+    margin-top: 10px;
+  }
+
+  .admin_anal_votegraph{
+    border :1px solid #060b26;
+    margin-top: 10px;
+    height:350px;
+    width: 640px;
+  }

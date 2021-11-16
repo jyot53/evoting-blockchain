@@ -36,15 +36,15 @@ const Navbar = () => {
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div id="navbar_address">
-            {
+            <p>{
               currentAccount ? <p>Account Address :- {currentAccount}</p> : "No Account Selected"
-            }
+            }</p>
             {
-              localStorage.getItem('isadmin') == 'true' && <Avatar color='#28fa40' round={true} size="45px"  name="Admin" />
+              localStorage.getItem('isadmin') == 'true' && <Avatar color='#fa7f28' round={true} size="45px"  name="Admin" />
             }
            </div>
         </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+        <nav id="navbar-admin"  className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           
           <ul className='nav-menu-items' onClick={showSidebar}>
             <li className='navbar-toggle'>

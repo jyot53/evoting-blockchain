@@ -34,7 +34,19 @@ const userSchema = new mongoose.Schema({
                 required: true
             }
         }
-    ]
+    ],
+    status :{ //voting status
+        type : Boolean,
+        default: false
+    },
+    isregister:{
+        type: Boolean,
+        default: false
+    },
+    gender:{
+        type: String,
+        required: true
+    }
 });
 
 

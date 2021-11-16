@@ -1,20 +1,28 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
-//after succesfull login redirect to home page - useHistory
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import LoginPic from "../images/pngfindlogin.png";  
-import titlepic from "../images/titlepic.png";
+import ReCAPTCHA  from "react-google-recaptcha";
+import * as FiIcons from 'react-icons/fi';
+import './styles/login.css'
+// import LoginPic from "../images/pngfindlogin.png";  
+// import titlepic from "../images/titlepic.png";
 // import {useStateValue} from '../StateProvider';
 const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const recaptchaRef = React.createRef();
   // const [{user}, dispatch] = useStateValue();
 
   const loginUser = async (e) => {
     e.preventDefault();
+
+    const recaptchaValue = recaptchaRef.current.getValue();
+    if(!recaptchaValue){
+      alert("Validate Recaptcha Before Login");
+      return;
+    }
 
     if (email == "admin@admin.com" && password == "admin") {
       // localStorage.setItem('isAdmin',true);
@@ -96,9 +104,101 @@ const Login = () => {
     }
   };
 
+  const togglePassword = () => {
+    var x = document.getElementById("passwordfield");
+    var icon = document.getElementById("iconeye");
+
+    if (x.type === "password") {
+      icon.classList.remove('fa-aye');
+      icon.classList.add('fa-eye-slash');
+      x.type = "text";
+    } else {
+      icon.classList.add('fa-aye');
+      icon.classList.remove('fa-eye-slash');
+      x.type = "password";
+    }
+  }
+
   return (
     <>
-      <section className="register">
+      <section className="login_main">
+      <div className="login_content">
+          <div className="login_left">
+            <h1>Login Before Use</h1>
+            <p>Login by entering your credentials.</p>
+            <p>Make sure you first create a new account before login.</p>
+            <form method="POST">
+                  <div className="form-group">
+                    <input
+                      type="email"
+                      className="form-control3"
+                      name="email"
+                      placeholder="Enter Email"
+                      autoComplete="off"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="password"
+                      className="form-control3"
+                      id="passwordfield"
+                      name="password"
+                      placeholder="Enter Password"
+                      autoComplete="off"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <span onClick={togglePassword} className="icon"><i id="iconeye" className="fa fa-eye" aria-hidden="true"></i></span>
+                  </div>
+                  <div className="captchadiv">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey="6LeXHCYdAAAAAKsO1mY3CDSx4SLB0Be1x2WHyXu3"
+                    />
+                  </div>
+                    {/* <button
+                      type="submit"
+                      className="btn btn-primary registerbtn d-flex align-items-center justify-content-center"
+                      onClick={loginUser}
+                    >
+                      Login
+                    </button> */}
+                    <button type="submit" onClick={loginUser} className="login_btn">Login</button>
+                </form>
+            <div className="login_last" > 
+              <p> Not have a account ? </p>
+              <NavLink className="login_link" to="/register">Register</NavLink>
+            </div>
+            
+          </div>
+          <div className="login_right">
+            {/* <img className="login_img" src="https://fistrba-room-chat.netlify.app/static/media/chat.25f84375.svg" alt="loginuser"/> */}
+            <img className="login_img" src="https://image.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg" alt="loginuser"/>
+          </div>
+        </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        </section>
+    </>
+  );
+};
+
+export default Login;
+
+/* 
+<section className="register">
         <div className="container frame">
           <div className="row offset-1 ">
             <div className="col-md-6 col-12 d-flex align-items-center justify-content-center flex-column">
@@ -136,7 +236,12 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-
+                  <div className="form-group captchadiv">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey="6LeXHCYdAAAAAKsO1mY3CDSx4SLB0Be1x2WHyXu3"
+                    />
+                  </div>
                   <div className="d-flex align-items-center text-center">
                     <button
                       type="submit"
@@ -174,8 +279,5 @@ const Login = () => {
           pauseOnHover
         />
       </section>
-    </>
-  );
-};
 
-export default Login;
+*/

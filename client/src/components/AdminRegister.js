@@ -1,14 +1,35 @@
-import React , {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
-import {useHistory} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/js/src/collapse.js";
+
 const AdminRegister = () => {
   const history = useHistory();
 
+  const truereg = true;
+  const falsereg = false;
+
+  const [users, setUsers] = useState([]);
+
+  const init = async () => {
+    const response = await fetch("/all_users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await response.json();
+    // console.log(data);
+    setUsers(data.users);
+  };
+
   useEffect(() => {
-    if(localStorage.getItem('isadmin') == 'false'){
-      history.replace('/login');
+    if (localStorage.getItem("isadmin") == "false") {
+      history.replace("/login");
     }
-  },[])
+
+    init();
+  }, []);
 
   return (
     <div className="admin_register">
@@ -24,40 +45,41 @@ const AdminRegister = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>0</td>
-                <td>0x5d6973c68B91ec5af7d11D455906a46499Ac4254</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>0x5d6973c68B91ec5af7d11D455906a46499Ac4254</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>0x5d6973c68B91ec5af7d11D455906a46499Ac4254</td>
-                <td>No</td>
-              </tr>
-              <tr>
-                <td>0</td>
-                <td>0x5d6973c68B91ec5af7d11D455906a46499Ac4254</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>0</td>
-                <td>0x5d6973c68B91ec5af7d11D455906a46499Ac4254</td>
-                <td>Yes</td>
-              </tr>
-              <tr>
-                <td>0</td>
-                <td>0x5d6973c68B91ec5af7d11D455906a46499Ac4254</td>
-                <td>Yes</td>
-              </tr>
+              {/* agg[0].usermapping[0].accountaddress */}
+
+              {users.map((user, index) => (
+                <>
+                  <tr
+                    data-toggle={"collapse"}
+                    data-target={".multi-collapse" + index}
+                    aria-controls={"multiCollapseExample" + index}
+                  >
+                    <td>{index + 1}</td>
+                    <td>{user.usermapping[0].accountaddress}</td>
+                    <td
+                      className={
+                        user.isregister
+                          ? "admin_register_bool_true"
+                          : "admin_register_bool_false"
+                      }
+                    >
+                      <span>{user.isregister ? "Yes" : "No"}</span>
+                    </td>
+                  </tr>
+                  <tr
+                    className={"collapse" + " multi-collapse" + index + " specialrow"}
+                    id={"multiCollapseExample" + index}
+                  >
+                    <td>Name - {user.name}</td>
+                    <td>Aadhar - {user.aadhar}</td>
+                    <td>Email - {user.email}</td>
+                  </tr>
+                </>
+              ))}
             </tbody>
           </Table>
         </div>
-        <div className="admin_register_input">
+        {/* <div className="admin_register_input">
           <form method="post">
             <input
               className="admin_register_input"
@@ -69,7 +91,7 @@ const AdminRegister = () => {
               Register
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
     </div>
   );
