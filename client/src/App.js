@@ -22,7 +22,7 @@ import Error from './components/Error';
 import NavbarAdmin from './components/NavbarAdmin';
 import VotingCard from './components/VotingCard';
 import PrintCard from './components/PrintCard';
-// import Faq from './components/Faq';
+import Faq from './components/Faq';
 // import Vote from './components/Vote';
 // import Sentmail from './components/Sentmail';
 import Testeth from './components/Testeth';
@@ -113,9 +113,9 @@ const App = () => {
         {/* <Route path="/sendmail">
           <Sentmail/>
         </Route> */}
-        {/* <Route path="/faqs">
+        <Route path="/faqs">
           <Faq/>
-        </Route> */}
+        </Route>
         <Route>
           <Error/>
         </Route>

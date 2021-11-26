@@ -259,6 +259,7 @@ router.post("/all_users" , async (req, res) => {
      ]);
      //agg[0].usermapping[0].accountaddress
      return res.status(201).json({users: agg});
-})
+});
+
 
 module.exports = router;

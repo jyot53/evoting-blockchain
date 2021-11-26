@@ -89,6 +89,29 @@
   width: 100%;
 }
 
+.home_header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_header a{
+  margin-right: 40px;
+  background-color: #edb920;
+  color: #000;
+  text-decoration: none;
+  border-radius: 10px;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+.home_header a:hover{
+  background-color: #f5c534;
+  color: #000;
+}
+
 .home_main{
   display: flex;
   align-items: center;
@@ -331,6 +354,9 @@
 }
 
 #navbar-admin ul{
+  padding-left: 0;
+}
+#navbar-user ul{
   padding-left: 0;
 }
 

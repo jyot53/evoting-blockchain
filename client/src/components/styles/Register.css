@@ -52,7 +52,7 @@
   
   .form-control2:focus {
     box-shadow: none;
-    border: 1px solid #01b399;
+    border: 1px solid #fe4f5a;
     background-color: #f5f0f0;
     outline: 0;
   }

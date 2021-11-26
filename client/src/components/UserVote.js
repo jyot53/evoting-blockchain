@@ -66,7 +66,7 @@ const UserVote = () => {
 
   const voteCandidate = async (id) => {
     const checkregister = isRegisteredUser();
-    if(checkregister){
+    if(!checkregister){
       alert("You have to register before voting");
       // history.replace("/user/home");
       return;

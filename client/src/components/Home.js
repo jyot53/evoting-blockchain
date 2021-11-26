@@ -1,10 +1,32 @@
-import React from "react";
+import React , { useState, useEffect , useRef } from "react";
 import Left from "../images/vote1.png";
+import alanBtn from "@alan-ai/alan-sdk-web";
+import {useHistory} from "react-router-dom";
 const Home = () => {
+
+  const history = useHistory();
+  const alanBtnInstance = useRef(null);
+  useEffect(() => {
+    if (!alanBtnInstance.current) {
+        alanBtnInstance.current = alanBtn({
+            key: 'abaf0677c3af5ec12bc8b9538046234f2e956eca572e1d8b807a3e2338fdd0dc/stage',
+            onCommand: (commandData) => {
+                    if (commandData.command === 'login') {
+                      setTimeout(() => history.push('/login'), 3000);
+                    }
+                    if (commandData.command === 'register') {
+                      setTimeout(() => history.push('/register'), 3000);
+                    }
+                }
+        });
+    }
+}, []);
   return (
     <div className="home">
-      <h1 className="home_title"><img src="https://i.imgur.com/nNgnnJ1.png" alt="logo" /></h1>
-
+      <div className="home_header">
+        <h1 className="home_title"><img src="https://i.imgur.com/nNgnnJ1.png" alt="logo" /></h1>
+        <a href='/faqs'>FAQs</a>
+      </div>
       <div className="home_main">
         <div className="home_main_left">
           {/* <img src="https://image.similarpng.com/very-thumbnail/2020/11/Vote-paper-put-in-election-box-on-transparent-background-PNG.png" alt="e-voting"/> */}

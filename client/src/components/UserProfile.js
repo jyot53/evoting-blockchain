@@ -1,33 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, {useRef, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Avatar from "react-avatar";
-import axios from "axios";
+import ReactToPrint from 'react-to-print';
+import VotingCard from './VotingCard';
 import "./styles/UserProfile.css";
 const UserProfile = () => {
   const history = useHistory();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState([]);
+  const [address, setAddress] = useState("");
+  const componentRef = useRef();
   const init = async () => {
-    const response = await axios.post("http://localhost:8000/get_details", {
-      email: localStorage.getItem("useremail"),
+    const response = await fetch("/all_users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
     });
 
-    /*{status: true, _id: '6172361d89338348a88e3b94', name: 'jyot', email: 'jyot@gmail.com', phone: '9429064588', …}
-        cpassword: "$2a$12$E2udwFH7WwhBn0UI6KG3QuabvkzNQp0llrkDkPtcMds.KB0mRQcrm"
-        date: "2021-10-22T03:55:09.034Z"
-        email: "jyot@gmail.com"
-        name: "jyot"
-        password: "$2a$12$mk2CWa8cJsfcf0kp9ENS4upldRv2ZmvastxDK7AskC7kmtnQcdrLK"
-        phone: "9429064588"
-        status: true
-        tokens: (3) [{…}, {…}, {…}]
-        __v: 3
-        _id: "6172361d89338348a88e3b94" */
+    const data = await response.json();
+    data.users.map((user,index) => {
+      if(user.name == localStorage.getItem("username")){
+        setUser(user);
+        setAddress(user.usermapping[0].accountaddress);
+      }
+    });
 
-    setUser(response.data.user);
-    console.log(user);
   };
 
-  useEffect(() => {
+useEffect(() => {
     if (
       !localStorage.getItem("username") ||
       !localStorage.getItem("useremail")
@@ -37,6 +35,7 @@ const UserProfile = () => {
 
     init();
   }, []);
+
 
   return (
     <>
@@ -67,8 +66,17 @@ const UserProfile = () => {
               <h5>{user?._id}</h5>
             </div>
             <div className="">
+              <p>Account Address : </p>
+              <small>Make sure to use this account address for voting purposes</small>
+              <h5>{address}</h5>
+            </div>
+            <div className="">
               <p>Email Address : </p>
               <h5>{user?.email}</h5>
+            </div>
+            <div className="">
+              <p>Aadhar Number : </p>
+              <h5>{user.aadhar}</h5>
             </div>
             <div className="">
               <p>Registered : </p>
@@ -77,6 +85,15 @@ const UserProfile = () => {
             <div className="">
               <p>Voting Status : </p>
               <h5>{user.status ? "Yes" : "No"}</h5>
+            </div>
+            <div>
+              <div style={{ display: 'none' }}>
+                < VotingCard id="card" ref={componentRef} name={localStorage.getItem('username')} email={localStorage.getItem('useremail')} address={address}/>
+              </div>
+              <ReactToPrint
+                trigger={() => <div className="vote_card_btn"> <button>Download Voting Card</button> </div>}
+                content={() => componentRef.current}
+              />
             </div>
           </div>
         </div>

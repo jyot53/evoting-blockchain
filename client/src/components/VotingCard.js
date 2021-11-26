@@ -26,10 +26,10 @@ const VotingCard = React.forwardRef( (props,ref) => {
               <div className="credit-font credit-author">
                 {props.email}
               </div>
-              <div className="credit-font credit-author">
+              {/* <div className="credit-font credit-author">
                 Age : 
-                {props.age}
-              </div>
+                {props?.age}
+              </div> */}
             </div>
             <div className="pull-right">
               <div className="mk-icon-visa"></div>

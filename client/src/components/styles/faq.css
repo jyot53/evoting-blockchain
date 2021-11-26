@@ -1,0 +1,73 @@
+.faq_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:calc(100vh - 10rem);
+    margin: 5rem;
+    background-color: #fff;
+    border: 1px solid #fff;
+    background-image: url('../../images/wave-haikei.svg');
+    border-radius: 30px;
+    /* background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%35' id='svg' viewBox='0 0 1440 600' xmlns='http://www.w3.org/2000/svg' class='transition duration-300 ease-in-out delay-150'%3E%3Cpath d='M 0 600 C 0 600 0 150 0 150 C 69.38717948717951 170.43076923076922 138.77435897435902 190.86153846153846 221 200 C 303.225641025641 209.13846153846154 398.2897435897436 206.98461538461538 491 201 C 583.7102564102564 195.01538461538462 674.0666666666667 185.20000000000002 748 179 C 821.9333333333333 172.79999999999998 879.4435897435897 170.2153846153846 963 152 C 1046.5564102564103 133.7846153846154 1156.1589743589743 99.93846153846154 1240 97 C 1323.8410256410257 94.06153846153846 1381.9205128205128 122.03076923076924 1440 150 C 1440 150 1440 600 1440 600 Z' stroke='none' stroke-width='0' fill='%237bdcb566' class='transition-all duration-300 ease-in-out delay-150 path-0'%3E%3C/path%3E%3Cpath d='M 0 600 C 0 600 0 300 0 300 C 95.20000000000002 311.5358974358974 190.40000000000003 323.07179487179485 269 319 C 347.59999999999997 314.92820512820515 409.6 295.24871794871797 475 282 C 540.4 268.75128205128203 609.2 261.93333333333334 698 280 C 786.8 298.06666666666666 895.5999999999999 341.01794871794874 971 346 C 1046.4 350.98205128205126 1088.4 317.9948717948718 1161 304 C 1233.6 290.0051282051282 1336.8 295.00256410256407 1440 300 C 1440 300 1440 600 1440 600 Z' stroke='none' stroke-width='0' fill='%237bdcb588' class='transition-all duration-300 ease-in-out delay-150 path-1'%3E%3C/path%3E%3Cpath d='M 0 600 C 0 600 0 450 0 450 C 71.49487179487181 419.76153846153846 142.98974358974363 389.5230769230769 227 398 C 311.0102564102564 406.4769230769231 407.53589743589737 453.6692307692308 489 482 C 570.4641025641026 510.3307692307692 636.8666666666667 519.8 719 494 C 801.1333333333333 468.2 898.9974358974359 407.1307692307692 977 411 C 1055.002564102564 414.8692307692308 1113.1435897435897 483.6769230769231 1187 501 C 1260.8564102564103 518.3230769230769 1350.4282051282053 484.16153846153844 1440 450 C 1440 450 1440 600 1440 600 Z' stroke='none' stroke-width='0' fill='%237bdcb5ff' class='transition-all duration-300 ease-in-out delay-150 path-2'%3E%3C/path%3E%3C/svg%3E"); */
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+.faq{
+    border: 1px solid rgb(243, 242, 242);
+    background-color: rgb(243, 242, 242);
+    height: 100vh;
+    /* background-image: url('../../images/faqwave.svg'); */
+}
+
+.faq_right{
+    height:75vh;
+    width: 600px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color:#fff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 2px;
+}
+
+.faq_json{
+    overflow-y: scroll;
+    height: 62vh;
+}
+
+.faq_right h1{
+    font-size:2rem;
+    font-weight:bold;
+}
+
+.faq_left img{
+    height: 500px;
+    padding-right: 6rem;
+}
+
+.faq_right hr{
+    margin-bottom: 1rem;
+    color: #7382c9;
+    border-radius: 5px;
+    height: 5px;
+    width:40px;
+}
+
+.faq_json::-webkit-scrollbar {
+    width: 0.7em;
+    border-radius:10px;
+  }
+  
+  .faq_json::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 0px rgba(0,0,0,0.3);
+  }
+  
+  .faq_json::-webkit-scrollbar-thumb {
+    background-color: #969695;
+    outline: 1px solid slategrey;
+    border-radius:5px;
+  }
+  
+  .faq_json::-webkit-scrollbar-thumb:hover{
+    background-color: #28142f;
+  }
