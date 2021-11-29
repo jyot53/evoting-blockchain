@@ -1,0 +1,42 @@
+.vote_card{
+    height:400px;
+    border:2px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 400px;
+    background-color: #e5e5e5;
+    color: #000;
+    font-weight: 500;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.vote_card figure{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.vote_card img{
+    height: 150px;
+    width: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.vote_card_content{
+    border: 1px solid #060b26;
+    height:250px;
+    width: 250px;
+    margin-top: -70px;
+  
+}

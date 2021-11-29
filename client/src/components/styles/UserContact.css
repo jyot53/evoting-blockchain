@@ -1,5 +1,5 @@
 .user_contact{
-    background-color: #eae7dc;
+    background-color: rgb(245, 244, 244);
     height:130vh;
 }
 
@@ -15,7 +15,7 @@
 
 .user_contact_details{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto;
     padding-left:13%;
     padding-right:2%;
     margin-top: 2%;
@@ -28,7 +28,7 @@
     justify-content: space-around;
     width: 350px;
     height: 250px;
-    background: linear-gradient(to bottom, #fff, #8e8d84);
+    background: linear-gradient(to bottom, rgb(223, 221, 221), #faf9ef);
 }
 
 .user_contact_detail:hover{
@@ -62,17 +62,23 @@
     margin-bottom: 40px;
 }
 
-.user_contact_left .form-control{
+.user_contact_left .form-control4{
     margin-top:5px;
-    width:50%;
+    width:80%;
     margin-top:40px;
     padding-top:7px ;
     padding-left: 3px;
+    display: flex;
+    align-items: center;
 }
 
 .user_contact_left input,textarea:focus{
     border:2px solid #0000 !important;
     background-color: #fff !important;
+}
+
+textarea{
+    border: none;
 }
 
 .user_contact_left button{

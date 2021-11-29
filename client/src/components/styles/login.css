@@ -124,6 +124,14 @@ input:focus {
   color: #969695;
 }
 
+.login_right_back{
+  display: flex;
+  justify-content:end;
+  cursor: pointer;
+  height: 40px;
+  padding-right: 20px;
+} 
+
 .login_right img {
   height: 415px;
   width: 456px;

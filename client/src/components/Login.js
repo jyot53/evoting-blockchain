@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import {BsArrowLeft}  from "react-icons/bs"
 import "react-toastify/dist/ReactToastify.css";
 import ReCAPTCHA  from "react-google-recaptcha";
-import * as FiIcons from 'react-icons/fi';
+// import * as FiIcons from 'react-icons/fi';
 import './styles/login.css'
 // import LoginPic from "../images/pngfindlogin.png";  
 // import titlepic from "../images/titlepic.png";
@@ -176,6 +177,9 @@ const Login = () => {
           </div>
           <div className="login_right">
             {/* <img className="login_img" src="https://fistrba-room-chat.netlify.app/static/media/chat.25f84375.svg" alt="loginuser"/> */}
+            <div className="login_right_back">
+              <BsArrowLeft size={40} onClick={() => history.push('/')} />
+            </div>
             <img className="login_img" src="https://image.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg" alt="loginuser"/>
           </div>
         </div>

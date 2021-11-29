@@ -3,7 +3,7 @@
   height: 85vh;
   align-items: center;
   /* justify-content: center; */
-  margin-top: 60px;
+  margin-top: 10px;
   background-color: #fff;
   flex-direction: column;
 }
@@ -48,6 +48,7 @@
   border-radius: 5px 20px 20px 5px;
   margin-bottom: 20px;
   background-color: #e2e3e4;
+  border: 2px solid #060b26;
 }
 
 .admin_add_content input::placeholder {

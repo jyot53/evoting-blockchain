@@ -10,6 +10,7 @@ contract Election{
         string description;
         string qualification;
         uint votecount;
+        string ipfshash;
     }   
     
     uint public candidatesCount;
@@ -54,8 +55,8 @@ contract Election{
         return phase;
     }
 
-    function addCandidate(string memory _name ,string memory _party,string memory _age ,string memory _description, string memory _qualification) public ownerModifier{
-        candidates[candidatesCount] = Candidate(candidatesCount,_name,_party,_age,_description,_qualification,0);
+    function addCandidate(string memory _name ,string memory _party,string memory _age ,string memory _description, string memory _qualification,string memory _ipfs) public ownerModifier{
+        candidates[candidatesCount] = Candidate(candidatesCount,_name,_party,_age,_description,_qualification,0,_ipfs);
         candidatesCount++;
     }
     

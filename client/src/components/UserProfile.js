@@ -15,7 +15,7 @@ const UserProfile = () => {
       headers: { "Content-Type": "application/json" },
     });
 
-    const data = await response.json();
+    const data = await response.json(); 
     data.users.map((user,index) => {
       if(user.name == localStorage.getItem("username")){
         setUser(user);
@@ -66,8 +66,8 @@ useEffect(() => {
               <h5>{user?._id}</h5>
             </div>
             <div className="">
-              <p>Account Address : </p>
-              <small>Make sure to use this account address for voting purposes</small>
+              <p>Account Address : </p>         
+                <small>Make sure to use this account address for voting purposes</small> :
               <h5>{address}</h5>
             </div>
             <div className="">
@@ -88,7 +88,7 @@ useEffect(() => {
             </div>
             <div>
               <div style={{ display: 'none' }}>
-                < VotingCard id="card" ref={componentRef} name={localStorage.getItem('username')} email={localStorage.getItem('useremail')} address={address}/>
+                <VotingCard id="card" ref={componentRef} name={localStorage.getItem('username')} email={localStorage.getItem('useremail')} address={address}/>
               </div>
               <ReactToPrint
                 trigger={() => <div className="vote_card_btn"> <button>Download Voting Card</button> </div>}

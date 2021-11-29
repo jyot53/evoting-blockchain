@@ -84,6 +84,14 @@
     justify-content: center;
   }
 
+  .register_right_back{
+    display: flex;
+    justify-content:start;
+    cursor: pointer;
+    margin-top:-30px;
+    margin-bottom: 20px;
+  }
+
 
   /* #special-group{
       display: flex;

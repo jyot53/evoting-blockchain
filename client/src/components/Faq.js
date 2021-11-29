@@ -13,12 +13,14 @@ import React, { useState, useEffect, useRef } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import { scroller } from "react-scroll";
 import faq_list from "../Utils/faq.json";
-import faq_img from "../images/faq.png";
+import {useHistory } from "react-router-dom";
+import {BsArrowLeft}  from "react-icons/bs"
 import './styles/faq.css';
 const Faq = () => {
   const alanBtnInstance = useRef(null);
   const [index, setIndex] = useState(null);
   const [currentId, setCurrentId] = useState(null);
+  const history = useHistory();
   document.title = "VoteChain-FAQ";
   useEffect(() => {
     if (!alanBtnInstance.current) {
@@ -51,6 +53,9 @@ const Faq = () => {
         </div>
         <div className="faq_right">
             <h1>FAQ's</h1>
+            <div className="faq_right_back">
+              <BsArrowLeft size={40} onClick={() => history.push('/')} />
+            </div>
             <hr/>
             <div className="faq_json">
             <ChakraProvider theme={theme}>

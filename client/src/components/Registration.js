@@ -4,10 +4,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './styles/Register.css';
 import {MdPassword} from 'react-icons/md';
-import {BsGenderAmbiguous} from 'react-icons/bs';
+import {BsGenderAmbiguous,BsArrowLeft} from 'react-icons/bs';
 import iconaa from '../images/icon.svg'
 
-import registerpic from "../images/registerpic.jpg";
+// import registerpic from "../images/registerpic.jpg";
 // import titlepic from "../images/titlepic.png";
 
 const Registration = () => {
@@ -21,9 +21,10 @@ const Registration = () => {
     password: "",
     cpassword: "",
   });
+
+
   let name, value;
   const handleInputs = (e) => {
-    //onchnage
     e.preventDefault();
     name = e.target.name;
     value = e.target.value;
@@ -36,11 +37,9 @@ const Registration = () => {
   }
 
   const postData = async (e) => {
-    //on submit/click
     e.preventDefault();
     const { name, email,gender, aadhar, password, cpassword } = user;
 
- 
     const response = await fetch("/register", {
       // url :- https://localhost:8000/register
       method: "POST",
@@ -96,6 +95,9 @@ const Registration = () => {
       <section className="registration_main">
       <div className="register_content">
           <div className="register_right">
+            <div className="register_right_back">
+              <BsArrowLeft size={40} onClick={() => history.push('/')} />
+            </div>
             <img className="login_img" src="https://image.freepik.com/free-vector/sign-concept-illustration_114360-125.jpg" alt="loginuser"/>
           </div>
           <div className="register_left">

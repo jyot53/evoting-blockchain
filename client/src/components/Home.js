@@ -1,4 +1,4 @@
-import React , { useState, useEffect , useRef } from "react";
+import React , {useEffect , useRef } from "react";
 import Left from "../images/vote1.png";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import {useHistory} from "react-router-dom";
@@ -40,12 +40,12 @@ const Home = () => {
           <div className="wrapper">
             <div className="home_main_right_1">
               <a href="/login">
-                <span>User Sign-UP/Login</span>
+                <span>Login</span>
               </a>
             </div>
             <div>
-              <a href="/login">
-                <span>Admin Login</span>
+              <a href="/register">
+                <span>Register</span>
               </a>
             </div>
           </div>

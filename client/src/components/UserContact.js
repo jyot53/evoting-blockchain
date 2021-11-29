@@ -94,26 +94,26 @@ const UserContact = () => {
             <form method="post">
               <input
                 type="text"
-                className="form-control"
+                className="form-control4"
                 autoComplete="off"
                 placeholder="Enter Your Name"
                 value={localStorage.getItem("username")}
               />
               <input
                 type="email"
-                className="form-control"
+                className="form-control4"
                 autoComplete="off"
                 placeholder="Enter Your Email"
                 value={localStorage.getItem("useremail")}
               />
-              <textarea
+              <div><textarea
                 type="text"
-                className="form-control"
+                className="form-control4"
                 placeholder="Enter Your Message"
                 rows="6"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-              ></textarea>
+              ></textarea></div>
               <button onClick={sendMessage} type="submit">
                 Send
               </button>

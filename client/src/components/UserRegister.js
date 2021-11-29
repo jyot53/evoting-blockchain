@@ -120,6 +120,9 @@ const UserRegister = () => {
             <div className="user_register_note">
               <ol>
                 <li>
+                  Get your account address from your profile section.
+                </li>
+                <li>
                   Kindly fill the correct account address with respect to your
                   aadhar number.
                 </li>

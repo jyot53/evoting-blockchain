@@ -21,7 +21,11 @@ router.post("/register", async(req, res) => {
         return res.status(401).json({ warning: "All fields are compulsory" });
     }
 
-    const aadharExist = await Aadhar.findOne({ aadharNo: aadhar });
+    if(gender != "Male" || gender != "Female"){
+        return res.status(401).json({ error: "Gender must be Male or Female" });
+    }
+
+    const aadharExist = await Aadhar.findOne({ aadharNo: aadhar }); 
     if (aadharExist) {
         if (aadharExist.email == email && aadharExist.name == name) {
 
@@ -111,7 +115,6 @@ router.post("/addUser", async(req, res) => {
 
 
 router.post('/change_status', async(req, res) => {
-    console.log("change status");
     const { email } = req.body;
     try {
         const updatedUser = await User.findOneAndUpdate({ email: email }, { status: true }, { new: true }, (e) => {
@@ -126,7 +129,6 @@ router.post('/change_status', async(req, res) => {
 })
 
 router.post('/change_register', async(req, res) => {
-    console.log("change register");
     const { email } = req.body;
     try {
         const updatedUser = await User.findOneAndUpdate({ email: email }, { isregister: true }, { new: true }, (e) => {

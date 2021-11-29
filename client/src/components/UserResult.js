@@ -2,35 +2,6 @@ import React , {useEffect,useState} from "react";
 import Table from "react-bootstrap/Table";
 import {useHistory} from 'react-router-dom';
 import { getContractCandidates, candidatesCount , getContractPhase } from "../electionContract";
-// import { Bar } from "react-chartjs-2";
-// const data = {
-//   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-//   datasets: [
-//     {
-//       label: "# of Votes",
-//       data: [12, 15, 3, 5, 2, 3],
-//       backgroundColor: [
-//         "rgba(255, 99, 132, 0.2)"
-//       ],
-//       borderColor: [
-//         "rgba(255, 99, 132, 1)"
-//       ],
-//       borderWidth: 2,
-//     },
-//   ],
-// };
-
-// const options = {
-//   scales: {
-//     yAxes: [
-//       {
-//         ticks: {
-//           beginAtZero: true,
-//         },
-//       },
-//     ],
-//   },
-// };
 
 const UserResult = () => {
 
@@ -38,7 +9,7 @@ const UserResult = () => {
   const [candidateInfo, setCandidateInfo] = useState([]);
   const [isResultphase, setIsResultphase] = useState(false);
   const [currphase, setCurrphase] = useState("");
-
+  const [winner, setWinner] = useState([]);
   const getCandidates = async (id) => {
     // console.log(details);
     let dummyArray = [];
@@ -49,6 +20,14 @@ const UserResult = () => {
         .catch((error) => console.error(error));
       dummyArray.push(details);
     }
+
+    dummyArray.sort((x, y) => {
+      var xcount = x.votecount;
+      var ycount = y.votecount;
+      if(xcount > ycount) return -1;
+      if(xcount <= ycount) return 1;
+    });
+    setWinner(dummyArray[0]);
     setCandidateInfo(dummyArray);
   };
 
@@ -80,35 +59,33 @@ const UserResult = () => {
           <>
             <div className="admin_register_title">Voting Results</div>
       <div className="admin_register_box">
+      <h2 id="winner">Winner Candidate is {winner.name}</h2>
         <div className="admin_register_table">
           <Table responsive hover>
           <thead>
               <tr>
                 <th>Serial No.</th>
                 <th>Name</th>
-                <th>Age</th>
+                {/* <th>Age</th> */}
                 <th>Party</th>
-                <th>Qualification</th>
+                {/* <th>Qualification</th> */}
                 <th>Votes</th>
               </tr>
             </thead>
             <tbody>
               {candidateInfo?.map((candidate, index) => (
                 <tr>
-                  <td>{index}</td>
+                  <td>{index+1}</td>
                   <td>{candidate.name}</td>
-                  <td>{candidate.age}</td>
+                  {/* <td>{candidate.age}</td> */}
                   <td>{candidate.party}</td>
-                  <td>{candidate.qualification}</td>
+                  {/* <td>{candidate.qualification}</td> */}
                   <td>{candidate.votecount}</td>
                 </tr>
               ))}
             </tbody>
           </Table>
-        </div>
-        <div className="voting-graph">
-            {/* <Bar data={data} options={options} /> */}
-        </div>
+        </div>  
       </div>
           </> 
         ) : currphase=="Voting" ? (

@@ -66,7 +66,7 @@ const UserOTP = () => {
 
        await changeRegister();
 
-        // history.replace('/print');
+        setTimeout(() => {history.replace('/user/home')} , 2000);
         
         // setTimeout(() => {const win = window.open('/print',"_blank");
         // win.focus();}, 2500);
@@ -126,7 +126,7 @@ const UserOTP = () => {
                   border: "2px solid red"
                 }}
               />
-              <h1>{data.serverotp}</h1>
+              {/* <h1>{data.serverotp}</h1> */}
             </div>
             <div className="otp_btn">
             <button type="submit">

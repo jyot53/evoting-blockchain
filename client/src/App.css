@@ -93,6 +93,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color:#1f1e1e;
+  padding-bottom: 10px;
+}
+
+.home_header img{
+  cursor: pointer;
 }
 
 .home_header a{
@@ -168,6 +174,16 @@
     
   .register input:focus {
      outline: none;
+  }
+
+  .faq_right_back{
+    /* display: flex;
+    justify-content:end;
+    cursor: pointer;
+    height: 40px; */
+    float:right;
+    margin-top: -40px;
+    cursor: pointer;
   }
   
   .register ::placeholder{
@@ -353,6 +369,10 @@
   background: none;
 }
 
+/* #navbar-admin-top, #navbar-admin{
+
+} */
+
 #navbar-admin ul{
   padding-left: 0;
 }
@@ -464,6 +484,10 @@
 .user_home_content span{
   text-transform: capitalize;
   
+}
+
+.user_home_content div:last-child{
+  margin-top: 30px;
 }
 
 .user_home{
@@ -635,7 +659,7 @@
 }
 
 .user_vote_card{
-  border:2px solid #2b7a78;
+  /* border:2px solid #2b7a78;
   border-radius: 10px;
   cursor: pointer;
   margin-top: 10px;
@@ -647,17 +671,66 @@
   width: 400px;
   background-color: #def2f1;
   color: #000;
+  font-weight: 500; */
+  height:450px;
+  border:2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 400px;
+  background-color: #e5e5e5;
+  color: #000;
   font-weight: 500;
+  text-transform: capitalize;
 
+}
+
+#btn-disable{
+  cursor: not-allowed !important;
+}
+
+#winner{
+  color: red;
+  text-transform: capitalize;
+  font-size: 15px;
+  text-align: center;
+  padding-bottom: 25px;
 }
 
 .user_vote_card h2{
   color: #3aafa9;
   text-transform: uppercase;
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #012238;
+}
+
+.user_vote_card span{
+  display: flex;
+  align-items: center;
+  /* margin-top: -20px; */
+  justify-content: center;
+  /* border-bottom: 2px solid #012238; */
+}
+
+.user_vote_card img{
+  margin-bottom: 20px;
+  height:100px;
+  width:100px;
+
+}
+
+.user_vote_index{
+  border: 1px solid #fff;
+  width:fit-content;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 10px;
+  border-radius: 50%;
+  background-color:#fff;
 }
 
 .user_vote_card div{

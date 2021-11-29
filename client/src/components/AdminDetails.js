@@ -19,6 +19,15 @@ const AdminDetails = () => {
         .catch((error) => console.error(error));
       dummyArray.push(details);
     }
+    
+    dummyArray.sort((x, y) => {
+      var xcount = x.votecount;
+      var ycount = y.votecount;
+      if(xcount > ycount) return -1;
+      if(xcount <= ycount) return 1;
+    });
+
+    console.log(dummyArray);
     setCandidateInfo(dummyArray);
   };
 
@@ -50,7 +59,7 @@ const AdminDetails = () => {
             <tbody>
               {candidateInfo?.map((candidate, index) => (
                 <tr>
-                  <td>{index}</td>
+                  <td>{index+1}</td>
                   <td>{candidate.name}</td>
                   <td>{candidate.age}</td>
                   <td>{candidate.party}</td>
