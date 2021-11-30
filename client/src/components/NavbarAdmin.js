@@ -15,6 +15,7 @@ const Navbar = () => {
   const hangleLogout = () => {
     localStorage.removeItem('username');
     localStorage.removeItem('useremail');
+    localStorage.setItem('isadmin' , false);
     alert('Sign-Out Successful');
     history.replace('/login');
   }

@@ -36,8 +36,8 @@ const UserOTP = () => {
 
     emailjs.send("service_3j49tqg", "template_mry13ca", {
         name : localStorage.getItem('username'),
-        to_email : "jyotsoni0053@gmail.com",
-        // to_email : localStorage.getItem('useremail'),
+        // to_email : "jyotsoni0053@gmail.com",
+        to_email : localStorage.getItem('useremail'),
         otp : OTP
     },'user_5PoQPN6QmL1CKfIDumeD6')
     .then(() => {

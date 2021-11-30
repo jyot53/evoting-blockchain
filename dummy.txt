@@ -1,0 +1,194 @@
+/*
+
+truffle compile - error free
+truffle migrate --reset - key  -> json file -> adderess and abi
+web3.js -> interaction with contracts -> abi and adderess -> instance of contract
+ -> instance.method
+ -> instance.method
+ -> instance.method
+ -> instance.method
+
+ */
+
+ npm i @openzeppelin/contracts
+
+ 1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0x55c3077c1496151bdaa42d288b1a56c0cfafd7aca41a7fda68fa48faf928a25e
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x43A84A780930c3F6d4C6F36CEB70994FA9c93135       
+   > block number:        187
+   > block timestamp:     1638192625
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.561355
+   > gas used:            244300 (0x3ba4c)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.004886 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:            0.004886 ETH
+
+
+2_deploy_contract.js
+====================
+
+   Replacing 'SimpleStorage'
+   -------------------------
+   > transaction hash:    0xd2e57997c51f32a9c139102437b71f730475222095837bfe9ad9813cc07ce1ff
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xe44Ea52422d190007B797a241aE4b4c9127886B2       
+   > block number:        189
+   > block timestamp:     1638192626
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.55782692
+   > gas used:            133891 (0x20b03)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00267782 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00267782 ETH
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.53091994
+   > gas used:            1317836 (0x141bcc)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02635672 ETH
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.02635672 ETH
+
+
+Summary
+=======
+> Total deployments:   3
+> Final cost:          0.03392054 ETH
+
+
+PS C:\Users\jyots\design-project-5sem> truffle migrate --reset
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      5777
+> Block gas limit: 6721975 (0x6691b7)
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0x6fe542b4509dc8db6df63d6353435adb47b3664d765a10a844080db9a51a07c5
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xF05c48039d6224391144424dE7f6754544f3E627       
+   > block number:        193
+   > block timestamp:     1638192739
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.52548368
+   > gas used:            244300 (0x3ba4c)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.004886 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:            0.004886 ETH
+
+
+2_deploy_contract.js
+====================
+
+   Replacing 'SimpleStorage'
+   -------------------------
+   > transaction hash:    0xc06742f7b77749b99e7de51167cbdef8abe5acd8ac9630f81766644da17f7a34
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xE6bdF4b5874937717d74452358c6bfC112a4620c       
+   > block number:        195
+   > block timestamp:     1638192740
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.5219556
+   > gas used:            133891 (0x20b03)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00267782 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00267782 ETH
+
+
+3_deploy_contract.js
+====================
+
+   Replacing 'Election'
+   --------------------
+   > transaction hash:    0x19c37ed68959b265c055a18b4a4e318690c17d82ca94a91da9d3974e455ae7a8
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xD2F842CbCCb25Ba4955260158121133d0cb18ef6       
+   > block number:        197
+   > block timestamp:     1638192741
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.49504862
+   > gas used:            1317836 (0x141bcc)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.02635672 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.02635672 ETH
+
+
+4_deploy_contract.js
+====================
+
+   Deploying 'MyNFT'
+   -----------------
+   > transaction hash:    0x92c434d93c22dbdead495a6612cc2a46284d8cb75af7735ff78fb896690302d2
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x0744568702bfeb0e4a839422eaC9Cbbf78b5F77A       
+   > block number:        199
+   > block timestamp:     1638192743
+   > account:             0x5AF77E8609E14C4E0eAC26443E2c61eAd0b6B474       
+   > balance:             99.44054616
+   > gas used:            2697610 (0x29298a)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.0539522 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:           0.0539522 ETH
+
+
+Summary
+=======
+> Total deployments:   4
+> Final cost:          0.08787274 ETH

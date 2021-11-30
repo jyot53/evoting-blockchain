@@ -21,7 +21,7 @@ router.post("/register", async(req, res) => {
         return res.status(401).json({ warning: "All fields are compulsory" });
     }
 
-    if(gender != "Male" || gender != "Female"){
+    if(gender != "Male" && gender != "Female"){
         return res.status(401).json({ error: "Gender must be Male or Female" });
     }
 
@@ -232,7 +232,7 @@ router.post("/contact_form", async(req, res) => {
     try {
         const contact = new Contact({ name, email, message });
         await contact.save();
-        return res.status(201).json({ message: "Your message has been sent, We will get back to you ASAP." });
+        return res.status(201).json({ message: "Your message has been sent, We will get back to you as soon as possible." });
     } catch (error) {
         return res.status(501).json({ error: "Server Error " + error });
     }

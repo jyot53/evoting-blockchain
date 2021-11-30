@@ -159,12 +159,12 @@ const UserVote = () => {
                       <div className="user_vote_card">
                         <p className="user_vote_index" >{index+1}</p>
                         <span>
-                          {/* {candidate.ipfshash && (
+                          {candidate.ipfshash && (
                             <img
                               src={"https://ipfs.io/ipfs/" + candidate.ipfshash}
                             />
-                          )} */}
-                          <img src="https://ipfs.io/ipfs/QmXwje9wkbxjysBY9gEEdLEkC9Ap9XzSs8TLo8br6MwseD"/>
+                          )}
+                          {/* <img src="https://ipfs.io/ipfs/QmXwje9wkbxjysBY9gEEdLEkC9Ap9XzSs8TLo8br6MwseD"/> */}
                         </span>
                         <h2>{candidate.name}</h2>
                         <p>{candidate.description} </p>

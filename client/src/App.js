@@ -9,6 +9,7 @@ import AdminDetails from './components/AdminDetails';
 import AdminRegister from './components/AdminRegister';
 import AdminAnalysis from './components/AdminAnalysis';
 import UserHome from './components/UserHome';
+import Testnft from './components/testnft';
 import UserRegister from './components/UserRegister';
 import UserOTP from './components/UserOTP';
 import UserVote from './components/UserVote';
@@ -51,6 +52,9 @@ const App = () => {
         </Route>
         <Route path="/print">
           <PrintCard />
+        </Route>
+        <Route path="/nft">
+          <Testnft/>
         </Route>
         <Route path="/user/home">
           <NavbarUser/>

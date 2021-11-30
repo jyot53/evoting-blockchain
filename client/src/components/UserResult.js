@@ -27,7 +27,8 @@ const UserResult = () => {
       if(xcount > ycount) return -1;
       if(xcount <= ycount) return 1;
     });
-    setWinner(dummyArray[0]);
+
+    setWinner(dummyArray[0].votecount == dummyArray[1]?.votecount ? "Tie" : dummyArray[0].name);
     setCandidateInfo(dummyArray);
   };
 
@@ -59,7 +60,7 @@ const UserResult = () => {
           <>
             <div className="admin_register_title">Voting Results</div>
       <div className="admin_register_box">
-      <h2 id="winner">Winner Candidate is {winner.name}</h2>
+      <h2 id="winner">{winner == "Tie" ? "Voting Result is Tie" : "Winner Candidate is "+winner}</h2>
         <div className="admin_register_table">
           <Table responsive hover>
           <thead>
